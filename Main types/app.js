@@ -17,5 +17,39 @@ const user = {
     surname: "Hrytsenko",
     city: "Dnipro",
     age: 23,
+    skills: {
+        js: true,
+        react: true,
+    },
 };
-console.log(getUserInformation(user));
+//test1
+const data = {
+    officeId: 50,
+    isOpened: false,
+    contacts: {
+        phone: "+380971234567",
+        email: "my@gmail.com",
+        address: { city: "Dnipro" },
+    },
+};
+//arrays
+const skills = ["JavaScript", "React", "Html", "Java"];
+const res = skills
+    .filter((skill) => skill !== "Java")
+    .map((skill) => skill + "! ")
+    .reduce((a, b) => a + b);
+for (const skill of skills) {
+    // console.log(skill.toUpperCase());
+}
+//tuples
+const skill = [1, "React"];
+const [id, skillName] = skill;
+const arrCopy = [1, "React", true, false];
+//readOnly
+const devDaTa = [1, "React"];
+const devDaTa2 = ["JavaScript", "React"];
+// devDaTa.push("example");
+// devDaTa2[0] = 'Js';
+//generic example
+const devDaTa4 = ["JavaScript", "React"];
+const devDaTa3 = ["JavaScript", "React"];
