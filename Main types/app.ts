@@ -31,7 +31,7 @@ const user = {
   },
 };
 
-//test1
+//test 1
 const data: {
   officeId: number;
   isOpened: boolean;
@@ -77,3 +77,76 @@ const devDaTa2: readonly string[] = ["JavaScript", "React"];
 //generic example
 const devDaTa4: Array<string> = ["JavaScript", "React"];
 const devDaTa3: ReadonlyArray<string> = ["JavaScript", "React"];
+
+//heterogeneous enum
+enum statusCode {
+  SUCCESS = "All is good",
+  IN_PROCESS = 1,
+  FAILED = "Very bad",
+}
+
+//constant enum
+const enum Roles {
+  ADMIN = 1,
+  DESIGNER = 2,
+}
+const roles = Roles.DESIGNER;
+
+//test 2
+
+//запрос
+// {
+//   "topicId": 5,
+//   "status": "published",
+// }
+
+//ответ
+[
+  {
+    "question": "abcdefg",
+    "answer": "qwerty",
+    "tags": [
+      "qaz",
+      "wert"
+    ],
+    "likes": 3,
+    "status": "published"
+  }
+]
+
+//js
+// async function getFlags(req) {
+//   const res = await fetch("/fags", {
+//     method: "POST",
+//     body: JSON.stringify(req),
+//   });
+//   const data = await res.json();
+//   return data;
+// }
+
+//answer, js to ts
+enum QuestionStatus {
+  Published = "published",
+  Draft = "draft",
+  Deleted = "deleted",
+}
+
+async function getFlags(req: {
+  topicId: number;
+  status?: QuestionStatus;
+}): Promise<
+  {
+    question: string;
+    answer: string;
+    tags: string[];
+    likes: number,
+    status: QuestionStatus
+  }[]
+> {
+  const res = await fetch("/fags", {
+    method: "POST",
+    body: JSON.stringify(req),
+  });
+  const data = await res.json();
+  return data;
+}

@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 let revenue = 500.2;
 let bonus = 200;
 let sayHello = "Hello TypeScript!";
@@ -22,7 +31,7 @@ const user = {
         react: true,
     },
 };
-//test1
+//test 1
 const data = {
     officeId: 50,
     isOpened: false,
@@ -53,3 +62,56 @@ const devDaTa2 = ["JavaScript", "React"];
 //generic example
 const devDaTa4 = ["JavaScript", "React"];
 const devDaTa3 = ["JavaScript", "React"];
+//heterogeneous enum
+var statusCode;
+(function (statusCode) {
+    statusCode["SUCCESS"] = "All is good";
+    statusCode[statusCode["IN_PROCESS"] = 1] = "IN_PROCESS";
+    statusCode["FAILED"] = "Very bad";
+})(statusCode || (statusCode = {}));
+const roles = 2 /* Roles.DESIGNER */;
+//test 2
+//запрос
+// {
+//   "topicId": 5,
+//   "status": "published",
+// }
+//ответ
+[
+    {
+        "question": "abcdefg",
+        "answer": "qwerty",
+        "tags": [
+            "qaz",
+            "wert"
+        ],
+        "likes": 3,
+        "status": "published"
+    }
+];
+//js
+// async function getFlags(req) {
+//   const res = await fetch("/fags", {
+//     method: "POST",
+//     body: JSON.stringify(req),
+//   });
+//   const data = await res.json();
+//   return data;
+// }
+//answer, js to ts
+var QuestionStatus;
+(function (QuestionStatus) {
+    QuestionStatus["Published"] = "published";
+    QuestionStatus["Draft"] = "draft";
+    QuestionStatus["Deleted"] = "deleted";
+})(QuestionStatus || (QuestionStatus = {}));
+function getFlags(req) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield fetch("/fags", {
+            method: "POST",
+            body: JSON.stringify(req),
+        });
+        const data = yield res.json();
+        return data;
+    });
+}
