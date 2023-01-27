@@ -36,3 +36,16 @@ function logMultipleIds(a: string | number, b: string | boolean) {
 
 let a: 1 = 1;
 // a = 2;
+
+//literal types
+const abc = "qwe"; //const = type "qwe"
+let abc2 = "qwe"; //let = type string
+
+function fetchWithAuth(url: string, method: "get" | "post"): 1 | -1 { //замість enum
+  return 1
+}
+
+fetchWithAuth("url", "get");
+
+let method = "post";
+fetchWithAuth("url", method as "post");
